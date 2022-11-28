@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const hostname = "192.168.0.131";
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(requestTime);
 
