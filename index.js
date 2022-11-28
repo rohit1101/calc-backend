@@ -24,9 +24,18 @@ const port = 3000;
 
 app.use(requestTime);
 
-app.post("/add", (req, res) => res.send("from add"));
-app.post("/multiply", (req, res) => res.send("from multiply"));
-app.post("/subtract", (req, res) => res.send("from subtract"));
+app.post("/add", (req, res) => {
+  console.log(req.body);
+  res.send("from add");
+});
+app.post("/multiply", (req, res) => {
+  console.log(req.body);
+  res.send("from multiply");
+});
+app.post("/subtract", (req, res) => {
+  console.log(req.body);
+  res.send("from subtract");
+});
 
 app.listen(port, () => {
   console.log(`server running on http://${hostname}:${port}`);
