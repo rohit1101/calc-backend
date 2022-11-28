@@ -19,22 +19,28 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const hostname = "127.0.0.1";
+const hostname = "192.168.0.131";
 const port = 3000;
 
 app.use(requestTime);
 
-app.post("/add", (req, res) => {
-  console.log(req.body);
-  res.send("from add");
+app.post("/add/", (req, res) => {
+  const { firstOperand, secondOperand } = req.body;
+  const result = parseInt(firstOperand) + parseInt(secondOperand);
+
+  return res.send({ result });
 });
-app.post("/multiply", (req, res) => {
-  console.log(req.body);
-  res.send("from multiply");
+app.post("/multiply/", (req, res) => {
+  const { firstOperand, secondOperand } = req.body;
+  const result = parseInt(firstOperand) * parseInt(secondOperand);
+
+  return res.send({ result });
 });
-app.post("/subtract", (req, res) => {
-  console.log(req.body);
-  res.send("from subtract");
+app.post("/subtract/", (req, res) => {
+  const { firstOperand, secondOperand } = req.body;
+  const result = parseInt(firstOperand) - parseInt(secondOperand);
+
+  return res.send({ result });
 });
 
 app.listen(port, () => {
