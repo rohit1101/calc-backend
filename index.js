@@ -25,16 +25,19 @@ const port = 3000;
 app.use(requestTime);
 
 app.post("/add", (req, res) => {
-  console.log(req.body);
-  res.send("from add");
+  const { firstOperand, secondOperand } = req.body;
+  const result = parseInt(firstOperand) + parseInt(secondOperand);
+  res.sendStatus(200).send(result);
 });
 app.post("/multiply", (req, res) => {
-  console.log(req.body);
-  res.send("from multiply");
+  const { firstOperand, secondOperand } = req.body;
+  const result = parseInt(firstOperand) * parseInt(secondOperand);
+  res.sendStatus(200).send(result);
 });
 app.post("/subtract", (req, res) => {
-  console.log(req.body);
-  res.send("from subtract");
+  const { firstOperand, secondOperand } = req.body;
+  const result = parseInt(firstOperand) - parseInt(secondOperand);
+  res.sendStatus(200).send(result);
 });
 
 app.listen(port, () => {
