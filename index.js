@@ -27,17 +27,17 @@ app.use(requestTime);
 app.post("/add", (req, res) => {
   const { firstOperand, secondOperand } = req.body;
   const result = parseInt(firstOperand) + parseInt(secondOperand);
-  res.sendStatus(200).send(result);
+  return res.sendStatus(200).send(result);
 });
 app.post("/multiply", (req, res) => {
   const { firstOperand, secondOperand } = req.body;
   const result = parseInt(firstOperand) * parseInt(secondOperand);
-  res.sendStatus(200).send(result);
+  return res.sendStatus(200).send(result);
 });
 app.post("/subtract", (req, res) => {
   const { firstOperand, secondOperand } = req.body;
   const result = parseInt(firstOperand) - parseInt(secondOperand);
-  res.sendStatus(200).send(result);
+  return res.sendStatus(200).send(result);
 });
 
 app.listen(port, () => {
